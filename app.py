@@ -7,6 +7,13 @@ st.set_page_config(
     page_icon="🥍",
     layout="centered"
 )
+st.markdown("""
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js');
+        }
+    </script>
+""", unsafe_allow_html=True)
 
 # Connect to OpenAI
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
